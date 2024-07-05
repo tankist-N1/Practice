@@ -1,0 +1,24 @@
+version: '3.8'
+x-project-name:
+name: my_project
+services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=Ablomis***678
+      - MYSQL_DATABASE=tankist
+
+
+  db:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=Ablomis***678
+      - MYSQL_DATABASE=tankist
+    ports:
+      - "3306:3306"
